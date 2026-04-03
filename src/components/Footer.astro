@@ -13,7 +13,10 @@ import BackToTop from "@components/BackToTop.astro";
     </div>
     <div class="flex justify-between items-center">
       <div>
-        &copy; 2024 {`|`} {SITE.NAME}
+        &copy;{" "}
+        <span data-footer-current-year>{new Date().getFullYear()}</span>
+        {" "}
+        {`|`} {SITE.NAME}
       </div>
       <div class="flex flex-wrap gap-1 items-center">
         <button
@@ -90,3 +93,20 @@ import BackToTop from "@components/BackToTop.astro";
     </div>
   </Container>
 </footer>
+
+<script is:inline>
+  (function () {
+    function setFooterYear() {
+      const y = String(new Date().getFullYear());
+      document.querySelectorAll("[data-footer-current-year]").forEach((el) => {
+        el.textContent = y;
+      });
+    }
+    setFooterYear();
+    // One listener for the whole session — Footer’s inline script can run again on view transitions.
+    if (!globalThis.__footerCurrentYearBound) {
+      globalThis.__footerCurrentYearBound = true;
+      document.addEventListener("astro:after-swap", setFooterYear);
+    }
+  })();
+</script>

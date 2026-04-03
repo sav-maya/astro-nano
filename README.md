@@ -1,64 +1,37 @@
-![Astro Nano](_astro_nano.png)
+# sav-db.com
 
-Astro Nano is a static, minimalist, lightweight, lightning fast portfolio and blog theme.
+Personal portfolio and blog built with [Astro](https://astro.build/), Tailwind CSS, and TypeScript.
 
-Built with Astro, Tailwind and Typescript, an no frameworks.
+## Node version
 
-It was designed as an even more minimal theme than my popular theme [Astro Sphere](https://github.com/markhorn-dev/astro-sphere)
+Use **Node 22 LTS** (this repo has a `.nvmrc` with `22`). **Node 25** often causes `npm install` to sit forever with no output.
 
-## 🚀 Deploy your own
+```bash
+nvm install 22
+nvm use
+```
 
-[![Deploy with Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-nano)  [![Deploy with Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-nano)
+## Commands
 
-## 📋 Features
+| Command           | Action                                      |
+| :---------------- | :------------------------------------------ |
+| `npm install`     | Install dependencies                        |
+| `npm run dev`     | Start dev server at `localhost:4321`      |
+| `npm run build`   | Build to `./dist/`                          |
+| `npm run preview` | Preview the production build locally        |
 
-- ✅ 100/100 Lighthouse performance
-- ✅ Responsive
-- ✅ Accessible
-- ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
+## If `npm install` never finishes
 
-## 💯 Lighthouse score
-![Astro Nano Lighthouse Score](_lighthouse.png)
+1. Switch to Node **22** (see above), delete `node_modules`, try again.
+2. Or use Docker (installs deps inside Linux, no local npm):
 
-## 🕊️ Lightweight
-No frameworks or added bulk
+```bash
+docker build -t sav-site .
+docker run --rm -p 4321:4321 sav-site
+```
 
-## ⚡︎ Fast
-Rendered in ~40ms on localhost
+Open [http://localhost:4321](http://localhost:4321).
 
-## 📄 Configuration
+## License
 
-The blog posts on the demo serve as the documentation and configuration.
-
-## 💻 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-Replace npm with your package manager of choice. `npm`, `pnpm`, `yarn`, `bun`, etc
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run dev:network`     | Starts local dev server on local network         |
-| `npm run sync`            | Generates TypeScript types for all Astro modules.|
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run preview:network` | Preview build on local network                   |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run lint`            | Run ESLint                                       |
-| `npm run lint:fix`        | Auto-fix ESLint issues                           |
-
-## 🏛️ License
-
-MIT
+MIT — see [LICENSE](./LICENSE).
