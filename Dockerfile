@@ -1,4 +1,4 @@
-# Reproducible install: Node 22 LTS (avoid Node 25 + npm quirks while deps resolve)
+# Use Node 22 LTS — avoids many npm hangs seen on Node 25 + non‑LTS toolchains.
 FROM node:22-bookworm-slim
 
 WORKDIR /app
